@@ -9,8 +9,8 @@ Un simulador de memoria caché que implementa un algoritmo de ajuste dinámico d
 
 - 🧠 Simulación de caché con múltiples niveles de asociatividad
 - ⚡ Algoritmo de ajuste dinámico de tamaño de línea (16B-128B)
-- 📊 Generación de métricas de rendimiento en tiempo real
-- 🎨 Visualización de resultados con gráficos interactivos
+- 📊 Generación de métricas de rendimiento
+- 🎨 Visualización de resultados con gráficos de barras
 - 🧩 Soporte para las políticas de reemplazo:
   - LRU (Least Recently Used)
   - Aleatorio
