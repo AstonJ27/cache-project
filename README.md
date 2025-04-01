@@ -70,10 +70,11 @@ en base al tamaño de linea
 ## 📚 Bibliotecas de Terceros
 
 ### Tabulate
-- **Función**: Generación de tablas en consola
+- **Función**: Generación de tablas en consola (tambien usado para crear graficas de barra)
 - **Repositorio**: [p-ranav/tabulate](https://github.com/p-ranav/tabulate)
 - **Licencia**: [MIT](THIRD-PARTY-LICENSES#tabulate)
 - **Uso en código**:
+
   ```cpp
   //grafic.h
   #ifndef GRAFIC_H
