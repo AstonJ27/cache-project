@@ -2,16 +2,16 @@
 
 //------------------------------------------/ Implementación de GeneradorPatrones |--------------------------------------//
 
-vector<int> GeneradorPatrones::generarAccesos(TipoPatron patron, size_t numAccesos, int maxDireccion,int tamLinea) {
+vector<int> GeneradorPatrones::generarAccesos(TipoPatron patron, size_t numAccesos, int maxDireccion,int tamLinea){
     vector<int> accesos;
     random_device rd;
     mt19937 gen(rd());
     
-    switch(patron) {
+    switch(patron){
         case SECUENCIAL: {
             //Acceso secuencial cíclico  
             
-            for(size_t i = 0; i < numAccesos; ++i) {
+            for(size_t i = 0; i < numAccesos; ++i){
                 accesos.push_back(i % maxDireccion);
             }
             break;
@@ -20,7 +20,7 @@ vector<int> GeneradorPatrones::generarAccesos(TipoPatron patron, size_t numAcces
             //Acceso completamente aleatorio
 
             uniform_int_distribution<> distrib(0, maxDireccion-1);
-            for(size_t i = 0; i < numAccesos; ++i) {
+            for(size_t i = 0; i < numAccesos; ++i){
                 accesos.push_back(distrib(gen));
             }
             break;
@@ -28,7 +28,7 @@ vector<int> GeneradorPatrones::generarAccesos(TipoPatron patron, size_t numAcces
         case CIRCULAR: {
             //Acceso circular en bloques de 1024 direcciones
             const int ciclo = 1024;
-            for(size_t i = 0; i < numAccesos; ++i) {
+            for(size_t i = 0; i < numAccesos; ++i){
                 accesos.push_back(i % ciclo);
             }
             break;
@@ -36,9 +36,9 @@ vector<int> GeneradorPatrones::generarAccesos(TipoPatron patron, size_t numAcces
         case ESTRIDED: {
             //Patrón con stride de 128 bytes y bloques de 16 accesos
             int base = 0;
-            for(size_t i = 0; i < numAccesos; ++i) {
+            for(size_t i = 0; i < numAccesos; ++i){
                 accesos.push_back(base + (i % 16) * 128);
-                if((i + 1) % 16 == 0) {
+                if((i + 1) % 16 == 0){
                     base += 1024; // Incrementar base cada 16 accesos
                 }
             }
@@ -52,9 +52,9 @@ vector<int> GeneradorPatrones::generarAccesos(TipoPatron patron, size_t numAcces
             //Inicializar primer cluster en posición aleatoria válida
             int clusterActual = distrib(gen); 
 
-            for(size_t i = 0; i < numAccesos; ++i) {
+            for(size_t i = 0; i < numAccesos; ++i){
                 //Cambiar de cluster cada 256 accesos
-                if(i % 256 == 0 && i != 0) { 
+                if(i % 256 == 0 && i != 0){ 
                     clusterActual = distrib(gen); //Nuevo cluster aleatorio
                 }
 
@@ -63,7 +63,7 @@ vector<int> GeneradorPatrones::generarAccesos(TipoPatron patron, size_t numAcces
                 int direccion = clusterActual + desplazamiento;
 
                 //Asegurar que la dirección no exceda maxDireccion
-                if(direccion >= maxDireccion) {
+                if(direccion >= maxDireccion){
                     direccion = direccion % maxDireccion; //Ajuste circular
                 }
 
@@ -77,8 +77,8 @@ vector<int> GeneradorPatrones::generarAccesos(TipoPatron patron, size_t numAcces
             // Combinación de diferentes patrones
             uniform_int_distribution<> selector(0, 2);
             int baseSecuencial = 0;
-            for(size_t i = 0; i < numAccesos; ++i) {
-                switch(selector(gen)) {
+            for(size_t i = 0; i < numAccesos; ++i){
+                switch(selector(gen)){
                     case 0:{
                         //Secuencial
                         accesos.push_back(baseSecuencial++ % 1024);
@@ -107,8 +107,8 @@ vector<int> GeneradorPatrones::generarAccesos(TipoPatron patron, size_t numAcces
     return accesos;
 }
 
-string GeneradorPatrones::obtenerNombrePatron(TipoPatron patron) {
-    switch(patron) {
+string GeneradorPatrones::obtenerNombrePatron(TipoPatron patron){
+    switch(patron){
         case SECUENCIAL:    return "Secuencial";
         case ALEATORIO:     return "Aleatorio";
         case CIRCULAR:      return "Circular";
@@ -119,7 +119,7 @@ string GeneradorPatrones::obtenerNombrePatron(TipoPatron patron) {
     }
 }
 
-vector<string> GeneradorPatrones::obtenerNombresPatrones() {
+vector<string> GeneradorPatrones::obtenerNombresPatrones(){
     return {
         "Secuencial",
         "Aleatorio",

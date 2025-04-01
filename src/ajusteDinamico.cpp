@@ -27,7 +27,7 @@ AjusteDinamico::simular(Cache& cache, GeneradorPatrones::TipoPatron patron, size
         int ciclosAntes = cache.obtenerCiclosTotales();
         
         // Procesar bloque de accesos
-        for(int j = i; j < finBloque; ++j) {
+        for(int j = i; j < finBloque; ++j){
             cache.acceder(accesos[j]);
         }
         
@@ -48,15 +48,15 @@ AjusteDinamico::simular(Cache& cache, GeneradorPatrones::TipoPatron patron, size
         
         //Ajustar tamaño
         int nuevoTam = tamActual;
-        if(tasa < umbral) {
+        if(tasa < umbral){
             nuevoTam = min(tamActual * 2, maxTam);
-        } else {
+        }else{
             nuevoTam = max(tamActual / 2, minTam);
         }
         
         //Ajustar si hay cambio
 
-        if(nuevoTam != tamActual) {
+        if(nuevoTam != tamActual){
             cache.cambiarTamanoLinea(nuevoTam);
             ajustes.push_back({finBloque, nuevoTam});
             tamActual = nuevoTam;

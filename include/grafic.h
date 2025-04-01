@@ -1,13 +1,11 @@
 #ifndef GRAFIC_H
 #define GRAFIC_H
 
-//width 128
-//height 44
-#include "resultadoSimulacion.h"
+#include "resultadoSimulacion.h"    //objeto que guarda los resultados obtenidos
 #include <vector>
 #include <string>
 #include <map>
 
 void generarGraficoConsolidado(const std::map<std::string, std::vector<ResultadoSimulacion>>& resultadosPorPatron);
 
-#endif
+#endif  //GRAFIC_H

@@ -2,26 +2,26 @@
 
 //-----------------------------------| Implementación de LineaCache |-----------------------------------------------------//
 
-LineaCache::LineaCache() : etiqueta(-1), valida(false), ultimoUso(0) {}
+LineaCache::LineaCache() : etiqueta(-1), valida(false), ultimoUso(0){}
 
-void LineaCache::actualizarUso(int cicloActual) {
+void LineaCache::actualizarUso(int cicloActual){
     ultimoUso = cicloActual;
 }
 
-bool LineaCache::estaValida() const { 
+bool LineaCache::estaValida() const{ 
     return valida; 
 }
 
-int LineaCache::obtenerEtiqueta() const { 
+int LineaCache::obtenerEtiqueta() const{ 
     return etiqueta; 
 }
 
-void LineaCache::configurarLinea(int nuevaEtiqueta, int cicloActual) {
+void LineaCache::configurarLinea(int nuevaEtiqueta, int cicloActual){
     etiqueta = nuevaEtiqueta;
     valida = true;
     ultimoUso = cicloActual;
 }
 
-int LineaCache::obtenerUltimoUso() const { 
+int LineaCache::obtenerUltimoUso() const{ 
     return ultimoUso; 
 }
