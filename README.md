@@ -1,9 +1,11 @@
 # Simulación de Memoria Caché con Ajuste Dinámico de Línea
 
+[![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?logo=cplusplus&logoColor=white)](https://isocpp.org/)
 [![BSD-3-Clause License](https://img.shields.io/badge/Licencia-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Tabulate License](https://img.shields.io/badge/Tabulate-MIT-green)](https://github.com/p-ranav/tabulate/blob/master/LICENSE)
 
-Un simulador de memoria caché que implementa un algoritmo de ajuste dinámico del tamaño de línea, evaluando diferentes patrones de acceso y políticas de reemplazo.
+Un simulador de memoria caché que implementa un algoritmo de ajuste dinámico del tamaño de línea, evaluando diferentes patrones de acceso y políticas de reemplazo, y calcula la tasa de aciertos
+en base al tamaño de linea
 
 ## Características Principales
 
